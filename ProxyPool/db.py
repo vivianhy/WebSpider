@@ -57,7 +57,7 @@ class RedisClient(object):
     # 将代理分数设置为最大值
     def max(self,proxy):
         print('代理{0}可用，设置分数为{1}'.format(proxy,MAX_SCORE))
-        return self.db.zadd(REDIS_KEY,MAX_SCORE,proxy)
+        return self.db.zadd(REDIS_KEY,{proxy:MAX_SCORE})
 
     # 获取代理数量
     def count(self):
